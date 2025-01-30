@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1054922637}
-  jumpForce: 15
+  jumpForce: 12
 --- !u!58 &1054922641
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipePrefab: {fileID: 334652832605169477, guid: 80af5a01667214664976cb0d340d44f1, type: 3}
-  spawnRate: 2
+  spawnRate: 2.5
   heightOffset: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
