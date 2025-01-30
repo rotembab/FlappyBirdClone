@@ -8,16 +8,21 @@ public class BirdScript : MonoBehaviour
    private InputSystem_Actions _playerInput;
     public float jumpForce;
 
+    void birdJump()
+    {
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
     private void Start()
     {
         _playerInput = new InputSystem_Actions();
         _playerInput.Enable();
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        birdJump();
+
     }
 
     private void OnJump()
     {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        birdJump();
     }
 
 }
