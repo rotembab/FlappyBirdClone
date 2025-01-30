@@ -10,7 +10,7 @@ public class BirdScript : MonoBehaviour
 
     void birdJump()
     {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.linearVelocity = (Vector2.up * jumpForce);
     }
     private void Start()
     {
