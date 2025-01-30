@@ -1,22 +1,23 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class BirdScript : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public InputActionReference jumpAction;
-    public float jumpForce; 
-    void Start()
+   private InputSystem_Actions _playerInput;
+    public float jumpForce;
+
+    private void Start()
     {
-        
+        _playerInput = new InputSystem_Actions();
+        _playerInput.Enable();
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnJump()
     {
-        if (jumpAction.action.IsPressed())
-        {
-            rb.AddForce(Vector2.up * jumpForce);
-        }
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
+
 }
