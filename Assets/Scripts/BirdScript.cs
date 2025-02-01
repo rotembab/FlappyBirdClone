@@ -3,24 +3,43 @@ using UnityEngine;
 public class BirdScript : MonoBehaviour
 {
     public Rigidbody2D rb;
-   private InputSystem_Actions _playerInput;
+    private InputSystem_Actions _playerInput;
     public float jumpForce;
-
-    void birdJump()
+    private LogicScript _logicScript;
+    private bool _isAlive = true;
+    
+  
+    void BirdJump()
     {
-        rb.linearVelocity = (Vector2.up * jumpForce);
+        if (_isAlive)
+        {
+            rb.linearVelocity = (Vector2.up * jumpForce);
+        }
     }
     private void Start()
     {
+        _logicScript = GameObject.FindWithTag("Logic").GetComponent<LogicScript>();
         _playerInput = new InputSystem_Actions();
         _playerInput.Enable();
-        birdJump();
+        BirdJump();
 
     }
 
     private void OnJump()
     {
-        birdJump();
+        BirdJump();
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other);
+        
+        if (other.gameObject.layer == 3)
+        {
+            _isAlive = false;
+            _playerInput.Disable();
+            _logicScript.GameOver();
+        }
     }
 
 }
