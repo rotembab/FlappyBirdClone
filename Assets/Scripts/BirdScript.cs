@@ -32,7 +32,6 @@ public class BirdScript : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other);
         
         if (other.gameObject.layer == 3)
         {
@@ -41,5 +40,6 @@ public class BirdScript : MonoBehaviour
             _logicScript.GameOver();
         }
     }
+    
 
 }
