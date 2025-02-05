@@ -26,4 +26,9 @@
      {
          gameOverPanel.SetActive(true);
      }
+     
+     public void ReturnToMainMenu()
+     {
+         SceneManager.LoadScene("MainMenu");
+     }
 }
